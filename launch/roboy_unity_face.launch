@@ -1,3 +1,0 @@
-<launch>
-   <node name="unity_face" pkg="roboy_unity_face" type="unity_face.py" respawn="true" output="screen" />
-</launch>

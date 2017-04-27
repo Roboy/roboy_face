@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(roboy_unity_face)
+project(roboy_face)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g")
 
@@ -50,12 +50,12 @@ catkin_package(
 
 
 ## Declare a cpp executable
-# add_executable(roboy_unity_face_node src/roboy_unity_face_node.cpp)
+# add_executable(roboy_face_node src/roboy_face_node.cpp)
 # target_link_libraries(
-# 	roboy_unity_face_node
+# 	roboy_face_node
 # 	${catkin_LIBRARIES}
 # )
-# add_dependencies(roboy_unity_face_node ${catkin_EXPORTED_TARGETS})
+# add_dependencies(roboy_face_node ${catkin_EXPORTED_TARGETS})
 
 #add_executable(test_client src/test_client.cpp)
 #target_link_libraries(
