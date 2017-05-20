@@ -1,8 +1,8 @@
 #!/usr/bin/python
 
 
-from roboy_face.msg import EmotionMsg
-from roboy_face.srv import ShowEmotion
+from roboy_communication_control.msg import Emotion
+from roboy_communication_control.srv import ShowEmotion
 
 import os
 import sys
@@ -10,7 +10,7 @@ import sys
 import rospy
 
 def face_callback(req):
-	pub = rospy.Publisher('/roboy_face/emotion', EmotionMsg, queue_size=10)
+	pub = rospy.Publisher('/roboy_face/emotion', Emotion, queue_size=10)
 	msg = EmotionMsg()
 	msg.emotion = req.emotion;
 	pub.publish(msg)
