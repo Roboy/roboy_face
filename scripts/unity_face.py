@@ -10,15 +10,15 @@ import sys
 import rospy
 
 def face_callback(req):
-	pub = rospy.Publisher('/roboy_face/emotion', Emotion, queue_size=10)
-	msg = EmotionMsg()
+	pub = rospy.Publisher('/roboy/control/face/emotion', Emotion, queue_size=10)
+	msg = Emotion()
 	msg.emotion = req.emotion;
 	pub.publish(msg)
 	return {'success':True}
 
 if __name__ == '__main__':
 	rospy.init_node('roboy_face')
-	s_sys = rospy.Service('/roboy_face/show_emotion', ShowEmotion, face_callback)
-	print "/roboy_face/emotion is ready"
+	s_sys = rospy.Service('/roboy/control/face/emotion', ShowEmotion, face_callback)
+	print "/roboy/control/face/emotionis ready"
 
 	rospy.spin()
