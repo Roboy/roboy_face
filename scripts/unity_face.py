@@ -1,8 +1,8 @@
 #!/usr/bin/python
 
 
-from roboy_communication_control.msg import Emotion
-from roboy_communication_control.srv import ShowEmotion
+from roboy_control_msgs.msg import Emotion
+from roboy_control_msgs.srv import ShowEmotion
 from std_msgs.msg import String
 
 import os

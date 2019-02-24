@@ -8,7 +8,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   message_generation
-  roboy_communication_control
+  roboy_control_msgs
   
 )
 
@@ -31,7 +31,7 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 catkin_package(
-  CATKIN_DEPENDS rospy std_msgs message_generation roboy_communication_control
+  CATKIN_DEPENDS rospy std_msgs message_generation roboy_control_msgs
 )
 
 
