@@ -10,15 +10,17 @@ import sys
 
 import rospy
 
+topic_root = "/roboy/brain"
+
 def face_callback(req):
-	pub = rospy.Publisher('/roboy/cognition/face/emotion', Emotion, queue_size=10)
+	pub = rospy.Publisher(topic_root + '/cognition/face/emotion', Emotion, queue_size=1)
 	msg = Emotion()
 	msg.emotion = req.emotion;
 	pub.publish(msg)
 	return {'success':True}
 
 def topic_face_callback(data):	
-	pub = rospy.Publisher('/roboy/cognition/face/emotion', Emotion, queue_size=10)
+	pub = rospy.Publisher(topic_root + '/cognition/face/emotion', Emotion, queue_size=1)
 	msg = Emotion()
 	msg.emotion = data.data;
 	pub.publish(msg)
@@ -27,8 +29,8 @@ def topic_face_callback(data):
 
 if __name__ == '__main__':
 	rospy.init_node('roboy_face')
-	s_sys = rospy.Service('/roboy/cognition/face/emotion', ShowEmotion, face_callback)
-	rospy.Subscriber("/roboy/cognition/face/show_emotion", String, topic_face_callback)
-	print "/roboy/cognition/face/emotion is ready"
+	s_sys = rospy.Service(topic_root + '/cognition/face/emotion', ShowEmotion, face_callback)
+	rospy.Subscriber(topic_root + "/cognition/face/show_emotion", String, topic_face_callback)
+	print topic_root + "/cognition/face/emotion is ready"
 
 	rospy.spin()
