@@ -2,7 +2,7 @@
 
 
 from roboy_control_msgs.msg import Emotion
-from roboy_control_msgs.srv import ShowEmotion
+from roboy_control_msgs.srv import ShowEmotion, ShowEmotionResponse
 from std_msgs.msg import String
 
 import os
@@ -10,14 +10,14 @@ import sys
 
 import rospy
 
-topic_root = "/roboy/brain"
+topic_root = "/roboy/pinky"
 
 def face_callback(req):
 	pub = rospy.Publisher(topic_root + '/cognition/face/emotion', Emotion, queue_size=1)
 	msg = Emotion()
 	msg.emotion = req.emotion;
 	pub.publish(msg)
-	return {'success':True}
+	return ShowEmotionResponse(success=True)
 
 def topic_face_callback(data):	
 	pub = rospy.Publisher(topic_root + '/cognition/face/emotion', Emotion, queue_size=1)
